@@ -47,7 +47,7 @@ function handleMotionEvent(event) {
     const y = event.accelerationIncludingGravity.y;
     const z = event.accelerationIncludingGravity.z;
 
-    console.log(x, y,z)
+    document.getElementById('d').textContent = `Motion: ${x} , ${y} , {z}`
 }
 
 window.addEventListener("devicemotion", handleMotionEvent, true);
