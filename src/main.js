@@ -42,11 +42,12 @@ function getVideoCardInfo() {
     };
 }
 
-const acl = new Accelerometer({ frequency: 60 });
-acl.addEventListener("reading", () => {
-    console.log(`Acceleration along the X-axis ${acl.x}`);
-    console.log(`Acceleration along the Y-axis ${acl.y}`);
-    console.log(`Acceleration along the Z-axis ${acl.z}`);
-});
+function handleMotionEvent(event) {
+    const x = event.accelerationIncludingGravity.x;
+    const y = event.accelerationIncludingGravity.y;
+    const z = event.accelerationIncludingGravity.z;
 
-acl.start();
+    console.log(x, y,z)
+}
+
+window.addEventListener("devicemotion", handleMotionEvent, true);
